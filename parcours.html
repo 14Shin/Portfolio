@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Diphylleia&family=Kaushan+Script&family=Pacifico&family=Satisfy&family=Zeyada&display=swap" rel="stylesheet">
+    <title>Parcours</title>
+    <style>
+        body {
+            font-family: 'Diphylleia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            font-family: 'Aclonica', sans-serif;
+            font-size: 3em;
+            background-image: url('blue.jpeg');
+            background-size: cover; 
+            background-position: center; 
+            color: #fff;
+            text-align: center; 
+            padding: 100px 0;
+        }
+
+        nav {
+            text-align: right;
+            font-size: 1.2em;
+            color: #333;
+            padding: 10px;
+            margin: 0 0.5em;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: blue;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: blue;
+            font-size: 1.em
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .education, .experience {
+            margin-left: 20px;
+        }
+
+        .date {
+            font-weight: bold;
+        }
+
+        .adresse {
+            font-style: italic;
+        }
+
+        .sous-titre {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mon Parcours</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="portfolio.html">Présentation</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="education">
+        <h2>Etudes</h2>
+        <hr>
+        <h3>Collège Pierre et Marie Curie</h3>
+        <ul>
+            <li>
+                <p class="date">2016 - 2020</p>
+                <p>Brevet des Collèges</p>
+                <p class="adresse">5 Chemin des Boutareines, 94350 Villiers-sur-Marne</p>
+            </li>
+        </ul>
+        <br>
+        <h3>Lycée International de l'Est Parisien</h3>
+        <ul>
+            <li>
+                <p class="date">2020 - 2023</p>
+                <p>Bac Mathématiques, Physique Chimie, LLCE</p>
+                <p>Bachillerato español, Section Bachibac</p>
+                <p class="adresse">1 Promenade Marco Polo, 93160 Noisy-le-Grand</p>
+            </li>
+        </ul>
+        <br>
+        <h3>IUT Informatique</h3>
+        <ul>
+            <li>
+                <p class="date">2024 - </p>
+                <p>Aprentissage du langage Python</p>
+                <p>Développement web avec HTML5/CSS</p>
+                <p>Gestion de bases de donnée et langage SQL</p>
+                <p class="adresse">Université Gustave Eiffel,  2 Rue Albert Einstein, 77420 Champs-sur-Marne</p>
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="experience">
+        <h2>Expérience Professionnelle</h2>
+        <hr>
+        <h3>Stage de 3ème</h3>
+        <ul>
+            <li>
+                <h4>Philharmonie de Paris</h4>
+                <p class="date">Mars 2019</p>
+                <p class="sous-titre">Activités/Découvertes :</p>
+                <ul>
+                    <li>Découvert le métier de conservateur et ses missions</li>
+                    <li>Participé à une exposition</li>
+                    <li>Assisté et aidé plusieurs employés dans leurs tâches</li>
+                </ul>
+                <p class="adresse">221 Avenue Jean Jaurès, 75019 Paris</p>
+            </li>
+        </ul>
+    </section>
+</body>
+
+</html>

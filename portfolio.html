@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Kaushan+Script&family=Pacifico&family=Satisfy&family=Zeyada&display=swap" rel="stylesheet">
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <title>Raphaël Tanguy</title>
+</head>
+<body>
+    <style>
+        body {
+        font-family: 'Diphylleia', serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #fff;
+    }
+
+    header {
+        font-family: "Pacifico", cursive;
+        font-size: 3em;
+        background-image: url('purple.jpeg');
+        background-size: cover; 
+        background-position: center; 
+        color: #fff;
+        text-align: center; 
+        padding: 100px 0;
+    }
+
+    nav {
+        text-align: right;
+        font-size: 1.2em;
+        color: #333;
+        padding: 10px;
+        margin: 0 0.5em;
+        transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+        background-color: purple;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    nav li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    #about {
+        padding: 20px;
+        background-color: #a204e6e8; 
+    }
+
+    
+
+    footer {
+        text-align: center;
+        font-size: 0.8em;
+        color: #777;
+    }
+
+    #cv {
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    #cv img {
+        max-width: 60%;
+        transition: transform 0.3s ease;
+    }
+
+    #cv:hover img {
+        transform: scale(1.1);
+    }
+
+    #cv a {
+        display: block; 
+        text-decoration: none;
+        color: inherit; 
+    }
+
+    #topLeftImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 100px; 
+            max-height: 100px;
+    }
+
+    </style>
+    <header>
+        <h1>Raphaël Tanguy</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="portfolio.html">Présentation</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2>Bonjour, je m'appelle Raphaël Tanguy, j'ai 18 ans. </h2> 
+        <h3>Je suis actuellement étudiant en 1ère année au BUT Informatique de Gustave Eiffel.</h2>
+        <p>Je cherche actuellement une alternance dans le domaine de l'informatique pour ma deuxième année.</p>
+        <p>J'ai pour objectif de poursuivre mes études dans une école d'ingénieur afin de devenir Ingénieur en Informatique pour ensuite faire du développement de jeux vidéos.</p>
+    </section>
+
+    <section id="about">
+        <h3>Pour ce qui est de mes qualités :</h3>
+        <p>Je suis quelqu'un de rigoureux, dynamique et curieux. J'aime m'impliquer dans mes tâches et n'ait aucun problème avec le fait de travailler en groupe.</p>
+        <p>J'aime apprendre de nouvelles choses et faire de nouvelles découvertes.</p>
+        <p>Je pense pouvoir me décrire comme quelqu'un de créatif, j'aime initier les idées et je suis capable de mener un groupe dans ce sens.</p>
+        <p>Je suis également capable d'émettre un avis critique et construit pour essayer d'améliorer les idées.</p>
+    </section>
+
+    <section id="about">
+        <h3>Voici quelques unes de mes compétences :</h3>
+        <ul>
+            <li>Maîtrise de l'anglais avancée (C2)</li>
+            <li>Maîtrise de l'espagnol avancée (C2)</li>
+            <li>Programmation et algorithmes en Python</li>
+            <li>Développement Web en HTML5/CSS</li>
+            <li>Gestion de bases de données et langage SQL</li>
+            
+        </ul>
+    </section>
+
+    <section id="content">
+        <div id="cv">
+            <h2>Mon Curriculum Vitae</h2>
+            <img src="Raphaël.png" alt="Mon CV">
+        <br>
+        <p class="hover-text">Cliquez pour télécharger</p>
+        <button id="downloadButton">Télécharger en PDF</button>
+        </div>
+        
+    </section>
+
+    <img id="topLeftImage" src="iut-logo.png" alt="Votre Image">
+
+    <footer>
+        <p>&copy; 2023 Raphaël Tanguy. Tous droits réservés.</p>
+    </footer>
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script>
+        document.getElementById('downloadButton').addEventListener('click', () => {
+            const element = document.getElementById('cv');
+            html2pdf(element);
+        });
+    </script>
+</body>
+</html>
