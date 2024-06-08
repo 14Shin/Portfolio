@@ -27,9 +27,9 @@
         <h2>Message reçu</h2>
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $nom = htmlspecialchars($_POST['nom']);
-            $prenom = htmlspecialchars($_POST['prenom']);
-            $message = htmlspecialchars(nl2br($_POST['message']));
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $message = nl2br($_POST['message']);
 
             echo "<p>Merci, $prenom $nom, pour votre message :</p>";
             echo "<p>$message</p>";
