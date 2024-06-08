@@ -232,71 +232,18 @@
         }
     }
 
-    .burger-menu {
-        display: none;
-        cursor: pointer;
-        margin-left: auto;
-    }
-
-    .burger-menu div {
-        width: 25px;
-        height: 3px;
-        background-color: #fff;
-        margin: 5px;
-        transition: 0.3s;
-    }
-
-    @media (max-width: 768px) {
-        nav ul {
-            display: none;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        nav li {
-            display: block;
-            margin: 10px 0;
-        }
-
-        .burger-menu {
-            display: block;
-        }
-    }
-
-    .open .line1 {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-
-    .open .line2 {
-        opacity: 0;
-    }
-
-    .open .line3 {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-
-    .open nav ul {
-        display: flex;
-    }
-
-
     </style>
     <header>
         <h1>Raphaël Tanguy</h1>
     </header>
 
     <nav>
-        <ul id="navLinks">
+        <ul>
             <li><a href="index.html" class="active">Présentation</a></li>
             <li><a href="parcours.html">Parcours</a></li>
             <li><a href="projets.html">Projets</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div class="burger-menu" id="burgerMenu">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
     </nav>
 
     <section id="about">
@@ -386,14 +333,5 @@
     <footer>
         <p>&copy; 2024 Raphaël Tanguy. Tous droits réservés.</p>
     </footer>
-    <script>
-        const burgerMenu = document.getElementById('burgerMenu');
-        const navLinks = document.getElementById('navLinks');
-
-        burgerMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            burgerMenu.classList.toggle('open');
-        });
-    </script>
 </body>
 </html>
