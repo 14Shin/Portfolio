@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Diphylleia&family=Kaushan+Script&family=Pacifico&family=Satisfy&family=Zeyada&display=swap" rel="stylesheet">
@@ -24,9 +25,9 @@
         }
 
         nav {
-            text-align: right;
-            font-size: 1.2em;
-            color: #333;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
             padding: 10px;
             margin: 0 0.5em;
             transition: background-color 0.3s;
@@ -39,10 +40,11 @@
         nav ul {
             list-style-type: none;
             padding: 0;
+            display: flex;
+            align-items: center;
         }
 
         nav li {
-            display: inline;
             margin-right: 10px;
         }
 
@@ -57,7 +59,7 @@
 
         h2 {
             color: blue;
-            font-size: 1.em
+            font-size: 1em;
         }
 
         ul {
@@ -81,6 +83,60 @@
             text-decoration: underline;
         }
 
+        footer {
+            text-align: center;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        /* Menu burger */
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .burger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .burger-menu {
+                display: block;
+            }
+        }
+
+        .open .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .open .line2 {
+            opacity: 0;
+        }
+
+        .open .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .open nav ul {
+            display: flex;
+        }
+
     </style>
 </head>
 
@@ -90,7 +146,12 @@
     </header>
 
     <nav>
-        <ul>
+        <div class="burger-menu" id="burgerMenu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul id="navLinks">
             <li><a href="index.html">Présentation</a></li>
             <li><a href="parcours.html">Parcours</a></li>
             <li><a href="projets.html">Projets</a></li>
@@ -120,17 +181,16 @@
             </li>
         </ul>
         <br>
-        <h3>IUT Informatique</h3>
+        <h3>IUT Informatique</h>
         <ul>
             <li>
                 <p class="date">2024 - </p>
-                <p>Aprentissage du langage Python</p>
+                <p>Apprentissage du langage Python</p>
                 <p>Développement web avec HTML5/CSS</p>
-                <p>Gestion de bases de donnée et langage SQL</p>
+                <p>Gestion de bases de données et langage SQL</p>
                 <p class="adresse">Université Gustave Eiffel,  2 Rue Albert Einstein, 77420 Champs-sur-Marne</p>
             </li>
         </ul>
-
     </section>
 
     <section class="experience">
@@ -143,14 +203,26 @@
                 <p class="date">Mars 2019</p>
                 <p class="sous-titre">Activités/Découvertes :</p>
                 <ul>
-                    <li>Découvert le métier de conservateur et ses missions</li>
-                    <li>Participé à une exposition</li>
-                    <li>Assisté et aidé plusieurs employés dans leurs tâches</li>
+                    <li>Découverte du métier de conservateur et ses missions</li>
+                    <li>Participation à une exposition</li>
+                    <li>Assistance et aide à plusieurs employés dans leurs tâches</li>
                 </ul>
                 <p class="adresse">221 Avenue Jean Jaurès, 75019 Paris</p>
             </li>
         </ul>
     </section>
-</body>
+    <footer>
+        <p>&copy; 2024 Raphaël Tanguy. Tous droits réservés.</p>
+    </footer>
 
+    <script>
+        const burgerMenu = document.getElementById('burgerMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        burgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            burgerMenu.classList.toggle('open');
+        });
+    </script>
+</body>
 </html>

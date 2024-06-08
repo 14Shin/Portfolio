@@ -25,6 +25,9 @@
 
         nav {
             text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            display: flex;
             font-size: 1.2em;
             color: #333;
             padding: 10px;
@@ -36,9 +39,15 @@
             background-color: #048B9A;
         }
 
+        nav a.active {
+            background-color: #048B9A;
+        }
+
         nav ul {
             list-style-type: none;
             padding: 0;
+            display: flex;
+            align-items: center;
         }
 
         nav li {
@@ -81,6 +90,59 @@
             text-decoration: none;
             color: #0077b5; 
         }
+
+        footer {
+        text-align: center;
+        font-size: 0.8em;
+        color: #777;
+        }
+
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        .burger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .burger-menu {
+                display: block;
+            }
+        }
+
+        .open .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .open .line2 {
+            opacity: 0;
+        }
+
+        .open .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .open nav ul {
+            display: flex;
+        }
         
     </style>
 </head>
@@ -91,12 +153,17 @@
     </header>
 
     <nav>
-        <ul>
+        <ul id="navLinks">
             <li><a href="index.html">Présentation</a></li>
             <li><a href="parcours.html">Parcours</a></li>
             <li><a href="projets.html">Projets</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
+        <div class="burger-menu" id="burgerMenu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
     </nav>
 
     <section>
@@ -118,6 +185,11 @@
         </div>
 
         <div class="contenu">
+            <img src="github.png" alt="Github Logo">
+            <div class="contact-text"><a href="https://github.com/14Shin" target="_blank">GitHub</a></div>
+        </div>
+
+        <div class="contenu">
             <img src="home.png" alt="Home Logo">
             <div class="contact-text">Villiers sur Marne</div>
         </div>
@@ -126,8 +198,33 @@
             <img src="briefcase.png" alt="Work Logo">
             <div class="contact-text">2 Rue Albert Einstein, 77420 Champs-sur-Marne</div>
         </div>
+    </section>
+    <section>
+
+        <h2>Envoyez-moi un message</h2>
+        <form action="contact.php" method="post">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" required><br><br>
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" required><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" cols="40" required></textarea><br><br>
+            <input type="submit" value="Envoyer">
+        </form>
 
     </section>
+    <footer>
+        <p>&copy; 2024 Raphaël Tanguy. Tous droits réservés.</p>
+    </footer>
 
+    <script>
+        const burgerMenu = document.getElementById('burgerMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        burgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            burgerMenu.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>

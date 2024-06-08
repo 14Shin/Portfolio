@@ -28,6 +28,9 @@
 
     nav {
         text-align: right;
+        justify-content: flex-end;
+        align-items: center;
+        display: flex;
         font-size: 1.2em;
         color: #333;
         padding: 10px;
@@ -39,9 +42,15 @@
         background-color: purple;
     }
 
+    nav a.active {
+        background-color: purple;
+    }
+
     nav ul {
         list-style-type: none;
         padding: 0;
+        display: flex;
+        align-items: center;
     }
 
     nav li {
@@ -59,7 +68,10 @@
         background-color: #a204e6e8; 
     }
 
-    
+    #skills {
+        padding: 20px;
+        background-color: rgba(66, 66, 66, 0.5); 
+    }
 
     footer {
         text-align: center;
@@ -80,10 +92,6 @@
         transition: transform 0.3s ease;
     }
 
-    #cv:hover img {
-        transform: scale(1.1);
-    }
-
     #cv a {
         display: block; 
         text-decoration: none;
@@ -98,25 +106,204 @@
             max-height: 100px;
     }
 
+    .cv-button {
+        background-color: #a204e6e8; 
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        transition-duration: 0.4s;
+    }
+
+    .cv-button:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid #a204e6e8;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        grid-gap: 1rem;
+        padding : 1rem 80px;
+        font-size: 1.4rem;
+    }
+
+    .skill-box {
+        padding: 1rem;
+        color: #ddd;
+        cursor: pointer;
+    }
+
+    .skill-box:hover > .skill-title:after, .skill-box:hover > .skill-title:before {
+        width: 70px;
+    }
+
+    .skill-box:hover .img {
+        transform: translateY(-10px);
+    }
+
+    .skill-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        position: relative;
+    }
+
+    .skill-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+        width: 0px;
+        height: 4px;
+        border-radius: 2px 0 0 2px;
+        background-color: #a204e6e8;
+        transition: .5s;
+    }
+
+    .skill-title:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0px;
+        height: 4px;
+        border-radius: 0 2px 2px 0;
+        background-color: #a204e6e8;
+        transition: .5s;
+    }
+
+    .img {
+        width: 180px;
+        height: 180px;
+        position: relative;
+        border-radius: 90px;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .5s;
+    }
+
+    .img:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 180px;
+        background: rgba(100, 100, 100, 0.5);
+        border-radius: 90px 0 0 90px;
+    }
+
+    .skill-title h4 {
+        color: #fff;
+        margin-top: 0.5rem;
+    }
+
+    .skill-icon {
+        width: 100px;
+        z-index: 2;
+
+    }
+
+    @media screen and (max-width: 990px) {
+        .container {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 2rem 50px;
+        }
+    }
+
+    @media screen and (max-width: 650px) {
+        .container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .burger-menu {
+        display: none;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    .burger-menu div {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 5px;
+        transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+        nav ul {
+            display: none;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        nav li {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .burger-menu {
+            display: block;
+        }
+    }
+
+    .open .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .open .line2 {
+        opacity: 0;
+    }
+
+    .open .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .open nav ul {
+        display: flex;
+    }
+
+
     </style>
     <header>
         <h1>Raphaël Tanguy</h1>
     </header>
 
     <nav>
-        <ul>
-            <li><a href="portfolio.html">Présentation</a></li>
+        <ul id="navLinks">
+            <li><a href="index.html" class="active">Présentation</a></li>
             <li><a href="parcours.html">Parcours</a></li>
             <li><a href="projets.html">Projets</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div class="burger-menu" id="burgerMenu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
     </nav>
 
     <section id="about">
-        <h2>Bonjour, je m'appelle Raphaël Tanguy, j'ai 18 ans. </h2> 
+        <h2>Bonjour, je m'appelle Raphaël Tanguy.</h2> 
         <h3>Je suis actuellement étudiant en 1ère année au BUT Informatique de Gustave Eiffel.</h2>
         <p>Je cherche actuellement une alternance dans le domaine de l'informatique pour ma deuxième année.</p>
-        <p>J'ai pour objectif de poursuivre mes études dans une école d'ingénieur afin de devenir Ingénieur en Informatique pour ensuite faire du développement de jeux vidéos.</p>
+        <p>J'ai pour objectif de poursuivre mes études dans une école d'ingénieur afin de devenir Ingénieur en Informatique pour ensuite faire du développement de jeux vidéos ou être développeur full-stack.</p>
     </section>
 
     <section id="about">
@@ -127,25 +314,69 @@
         <p>Je suis également capable d'émettre un avis critique et construit pour essayer d'améliorer les idées.</p>
     </section>
 
-    <section id="about">
-        <h3>Voici quelques unes de mes compétences :</h3>
-        <ul>
-            <li>Maîtrise de l'anglais avancée (C2)</li>
-            <li>Maîtrise de l'espagnol avancée (C2)</li>
-            <li>Programmation et algorithmes en Python</li>
-            <li>Développement Web en HTML5/CSS</li>
-            <li>Gestion de bases de données et langage SQL</li>
-            
-        </ul>
+    <section id="skills">
+        <h2>Voici quelques unes de mes compétences :</h3>
+        <div class="container">
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="img">
+                        <img src="python.png" class="skill-icon">
+                    </div>
+                    <h4>Python</h4>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="img">
+                        <img src="java.png" class="skill-icon">
+                    </div>
+                    <h4>Java</h4>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="img">
+                        <img src="C.png" class="skill-icon">
+                    </div>
+                    <h4>C</h4>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="img">
+                        <img src="php.png" class="skill-icon">
+                    </div>
+                    <h4>PHP</h4>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="img">
+                        <img src="html-5.png" class="skill-icon">
+                    </div>
+                    <h4>HTML5</h4>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="img">
+                        <img src="css-3.png" class="skill-icon">
+                    </div>
+                    <h4>CSS3</h4>
+                </div>
+            </div>
+        </div>
     </section>
+
 
     <section id="content">
         <div id="cv">
             <h2>Mon Curriculum Vitae</h2>
             <img src="Raphaël.png" alt="cv">
         <br>
-        <p class="hover-text">Cliquez pour télécharger</p>
-        <button id="downloadButton">Télécharger en PDF</button>
+        <a href="Raphaël.pdf" download="Raphaël.pdf">
+            <button class="cv-button">Téléchargez mon CV</button>
+        </a>
         </div>
         
     </section>
@@ -155,11 +386,13 @@
     <footer>
         <p>&copy; 2024 Raphaël Tanguy. Tous droits réservés.</p>
     </footer>
-    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
     <script>
-        document.getElementById('downloadButton').addEventListener('click', () => {
-            const element = document.getElementById('cv');
-            html2pdf(element);
+        const burgerMenu = document.getElementById('burgerMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        burgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            burgerMenu.classList.toggle('open');
         });
     </script>
 </body>

@@ -26,6 +26,9 @@
 
         nav {
             text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            display: flex;
             font-size: 1.2em;
             color: #333;
             padding: 10px;
@@ -37,9 +40,15 @@
             background-color: gold;
         }
 
+        nav a.active {
+            background-color: gold;
+        }
+
         nav ul {
             list-style-type: none;
             padding: 0;
+            display: flex;
+            align-items: center;
         }
 
         nav li {
@@ -82,7 +91,7 @@
         }
 
         .projet img:hover {
-            transform: scale(1.5); 
+            transform: scale(1.2); 
         }
 
         .projet-text {
@@ -99,6 +108,59 @@
             margin-left: 1em;
             margin-right: 0;
         }
+
+        footer {
+            text-align: center;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        .burger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .burger-menu {
+                display: block;
+            }
+        }
+
+        .open .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .open .line2 {
+            opacity: 0;
+        }
+
+        .open .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .open nav ul {
+            display: flex;
+        }
     </style>
 </head>
 <body>
@@ -108,12 +170,17 @@
     </header>
 
     <nav>
-        <ul>
-            <li><a href="portfolio.html">Présentation</a></li>
+        <ul id="navLinks">
+            <li><a href="index.html">Présentation</a></li>
             <li><a href="parcours.html">Parcours</a></li>
-            <li><a href="projets.html">Projets</a></li>
+            <li><a href="projets.html" class="active">Projets</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div class="burger-menu" id="burgerMenu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
     </nav>
 
     <div class="contenu">
@@ -167,28 +234,53 @@
         </div>
 
         <div class="projet">
-            <a href="https://etudiant.u-pem.fr/~jawed.essahli/Oldating/connexion/login.php">
-                <img src="olddating.png" alt="Projet 5">
+            <a href="CodexNaturalis.html">
+                <img src="codexnaturalis.png" alt="Projet 5">
             </a>
+            <div class="projet-text">
+                <h2>Codex Naturalis</h2>
+                <p>Programmation du jeu video Codex Naturalis.</p>
+                <p>Utilisation des bibliothèques de Java ainsi que de la bibliothèque zen5.</p>
+                
+            </div>
+        </div>
+
+        <div class="projet pair">
             <div class="projet-text">
                 <h2>Old Dating</h2>
                 <p>Création d'un site de rencontres pour personnes agées par groupe de quatre.</p>
                 <p>Maquettes du site réalisées sur Figma.</p>
                 <p>Site codé en PHP et HTML5/CSS avec une base de données en PostgreSQL.</p>
             </div>
+            <a href="https://etudiant.u-pem.fr/~jawed.essahli/Oldating/connexion/login.php">
+                <img src="olddating.png" alt="Projet 6">
+            </a>
         </div>
 
-        <div class="projet pair">
+        <div class="projet">
+            <a href="index.html">
+                <img src="portfolio.png" alt="Projet 7">
+            </a>
             <div class="projet-text">
                 <h2>Portfolio</h2>
                 <p>Création d'un portfolio personnel.</p>
                 <p>Site codé en HTML5/CSS et PHP</p>
             </div>
-            <a href="portfolio.html">
-                <img src="portfolio.png" alt="Projet 6">
-            </a>
         </div>
         
     </div>
+    <footer>
+        <p>&copy; 2024 Raphaël Tanguy. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        const burgerMenu = document.getElementById('burgerMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        burgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            burgerMenu.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
